@@ -1,0 +1,30 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    structure.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
+#    Updated: 2023/02/02 13:04:47 by hchereau         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+printf
+process:
+1	-> parcourir chaine jusqu'a trouver un %
+2	-> regarder si le caractere derriere le % est un caractere valable
+3	-> se referer a l'argurment suivant pour afficher
+4	-> return le nombre de caractere imprimer
+
+1 -> while
+
+2 -> fonction how_printable(carac)
+
+
+
+how_printable:
+but: 
+
+[c, b, o, %]
+ 0, 1, 2, 3
