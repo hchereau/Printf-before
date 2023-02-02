@@ -21,7 +21,9 @@ HEADER = $(INCLUDES)/printf.test.h
 
 ### printf
 
-PATH_PRINTF = -L../
+PATH_PRINTF_LIB = -L../
+
+PRINTF_LIB = ../libftprintf.a
 
 ### COMPILATION
 
@@ -36,7 +38,7 @@ CFLAGS += -fPIE
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	$(CC) $(CFLAGS) $^ $(MAIN_SRCS) -lbsd -o $@ $(INCLUDES) $(TEST_INCLUDES)
+	$(CC) $(CFLAGS) $^ $(PRINTF_LIB) $(MAIN_SRCS) -lbsd -o $@ $(INCLUDES) $(TEST_INCLUDES)
 
 ${OBJS}: $(PATH_OBJS)/%.o: %.c
 	mkdir -p $(PATH_OBJS)
