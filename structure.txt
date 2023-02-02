@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/02 13:04:47 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/02 13:17:29 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,29 @@ process:
 1	-> parcourir chaine jusqu'a trouver un %
 2	-> regarder si le caractere derriere le % est un caractere valable
 3	-> se referer a l'argurment suivant pour afficher
-4	-> return le nombre de caractere imprimer
+4	-> afficher tout
+5	-> return le nombre de caractere imprimer
 
 1 -> while
 
 2 -> fonction how_printable(carac)
 
+3 -> concatener l'argument suivant sur la chaine total (strjoin)
 
+4 -> write la chaine total
+
+passer en int la chaine total puis la return
 
 how_printable:
-but: 
+but: retourner l'index du meme caractere que l'input
+input : caractere apres un %
+output : l'index de la liste correspondant au caractere ou -1 si le caractere n'est pas dans la liste
+process :
+	-> parcourir la liste
+	-> si element liste == carac
+		-> return index
+	-> return -1
+
 
 [c, b, o, %]
  0, 1, 2, 3
