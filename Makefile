@@ -51,6 +51,24 @@ fclean: clean
 
 re: fclean
 	$(MAKE)
+norm:
+	@echo "\033[44;97;1m               \033[0m"
+	@echo "\033[44;97;1m  LIBFT NORM:  \033[46;97;1m  \033[0m"
+	@echo "\033[44;97;1m               \033[46;97;1m  \033[0m"
+	@echo " \033[46;97;1m                \033[0m"
+	@norminette libft | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
+	@echo "\n"
+	@echo "\033[44;97;1m                 \033[0m"
+	@echo "\033[44;97;1m  SOURCES NORM:  \033[46;97;1m  \033[0m"
+	@echo "\033[44;97;1m                 \033[46;97;1m  \033[0m"
+	@echo " \033[46;97;1m                  \033[0m"
+	@norminette srcs | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
+	@echo "\n"
+	@echo "\033[44;97;1m                  \033[0m"
+	@echo "\033[44;97;1m  INCLUDES NORM:  \033[46;97;1m  \033[0m"
+	@echo "\033[44;97;1m                  \033[46;97;1m  \033[0m"
+	@echo " \033[46;97;1m                   \033[0m"
+	@norminette includes | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
 
 .PHONY: all test clean fclean re
 .SILENT: test

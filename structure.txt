@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/02 15:08:20 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/03 11:52:05 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,5 +37,14 @@ process :
 		-> return index
 	-> return -1
 
-[c, b, o, %]
- 0, 1, 2, 3
+get_arg_c:
+but: ajouter l'arg %c dans le buffer
+input : va_list buffer
+outputs: taille arg + buffer
+process:
+	-> verifier si le buffer a assez d'espace pour le caractere
+	-> concatener le caractere au buffer
+	-> return le la size 
+
+[200~static int	(*handlers[])(t_print *print, va_list valist)
+		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
