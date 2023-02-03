@@ -22,10 +22,9 @@ process:
 
 2 -> fonction how_printable(carac)
 
-3 -> stocker au premier % dans une variable BUFFER puis le strjoin a chaque fois qu'il est plein
-
-4 -> write la chaine total
-
+3 -> stocker du  dernier % au prochain % dans buffer puis add l'argument correspondant ( si arg ou str trop grand pour rentrer dans le buffer, afficher le buffer, puis l'arg puis remettre a zero le buffer )
+	- > utiliser itoa base pour les fonction convertissant dans d'autre type
+	
 passer en int la chaine total puis la return
 
 how_printable:
@@ -37,7 +36,6 @@ process :
 	-> si element liste == carac
 		-> return index
 	-> return -1
-
 
 [c, b, o, %]
  0, 1, 2, 3
