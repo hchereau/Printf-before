@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/03 11:52:05 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/04 11:34:28 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ process:
 
 1 -> while
 
-2 -> fonction how_printable(carac)
+2 -> fonction how_printable(car)
 
 3 -> stocker du  dernier % au prochain % dans buffer puis add l'argument correspondant ( si arg ou str trop grand pour rentrer dans le buffer, afficher le buffer, puis l'arg puis remettre a zero le buffer )
 	- > utiliser itoa base pour les fonction convertissant dans d'autre type
