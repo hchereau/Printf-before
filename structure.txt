@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/04 11:34:28 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/04 15:29:02 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,14 @@ process:
 	-> verifier si le buffer a assez d'espace pour le caractere
 	-> concatener le caractere au buffer
 	-> return le la size 
+
+add_buffer:
+but: remplir le buffer
+input: buffer, va_list, index_buffer
+outputs: 1 si ca a marcher, 0 i le buffer est plein
+
+
+pour remplir le buffer: variable i 
 
 [200~static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
