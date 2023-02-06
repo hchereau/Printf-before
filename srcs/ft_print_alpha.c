@@ -6,13 +6,15 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:02:32 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/04 16:48:08 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:23:41 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_arg_c(char	**buffer, int c)
+void	get_arg_c(char	**buffer, int c, char	**str_final)
 {
+	size_t index_buffer;
+
 	
 }
