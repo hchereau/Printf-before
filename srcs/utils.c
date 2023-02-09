@@ -32,3 +32,18 @@ size_t	add_buffer_string(char **buffer, char *src)
 	}
 	return (i);
 }
+
+int	how_printable(char c)
+{
+	const	char	verif[] = "cspdiuxX%"
+	size_t			i;
+
+	i = 0;
+	while (verif[i] != '\0')
+	{
+		if (verif[i] == c)
+			return (i);
+		++i;
+	}
+	return (-1);
+}

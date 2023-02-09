@@ -59,7 +59,10 @@ process:
 		-> remplie src dans buffer
 	->remplie 
 
-pour remplir le buffer: variable i 
+ 
 
 static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
+
+static void *(*funcs[])(void *, const void, size_t) = {memcpy, inverse_memcpy};
+	return (funcs[dest < src](dest, src, n));
