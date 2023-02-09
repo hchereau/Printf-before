@@ -22,8 +22,11 @@ process:
 
 2 -> fonction how_printable(car)
 
-3 -> stocker du  dernier % au prochain % dans buffer puis add l'argument correspondant ( si arg ou str trop grand pour rentrer dans le buffer, afficher le buffer, puis l'arg puis remettre a zero le buffer )
-	- > utiliser itoa base pour les fonction convertissant dans d'autre type
+3 -> tab fonction
+
+4 -> write str_final
+
+5 return ft_strlen(str_final)
 	
 passer en int la chaine total puis la return
 
@@ -42,17 +45,21 @@ but: ajouter l'arg %c dans le buffer
 input : va_list buffer
 outputs: taille arg + buffer
 process:
-	-> verifier si le buffer a assez d'espace pour le caractere
-	-> concatener le caractere au buffer
-	-> return le la size 
+	-> appelle add_buffer string
+	-> si add_string renvoie autre chose que -1
+		-> ajouter le buffer a str_final
+		-> ft_bzero sur le buffer
 
 add_buffer:
 but: remplir le buffer
 input: buffer, va_list, index_buffer
-outputs: 1 si ca a marcher, 0 i le buffer est plein
-
+outputs:
+process:
+	-> verifie si src + index_buffer est plus grand que la taille du buffer
+		-> remplie src dans buffer
+	->remplie 
 
 pour remplir le buffer: variable i 
 
-[200~static int	(*handlers[])(t_print *print, va_list valist)
+static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};

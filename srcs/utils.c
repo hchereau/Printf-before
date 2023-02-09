@@ -12,17 +12,23 @@
 
 #include "ft_printf.h"
 
-int	add_buffer_string(char **buffer, char *src, char **str_final)
+size_t	add_buffer_string(char **buffer, char *src)
 {
 	const	size_t	index_buffer = ft_strlen(buffer);
 	const	size_t	len_src = ft_strlen(src);
-	size_t	i;
+	size_t			i;
 
-	
 	if (len_src + index_bf < BUFFER_SIZE)
 	{
 		ft_strlcpy(buffer + index_bf, src, len_src);
-		return (1);
+		return (-1);
 	}
-	return (0);
+	i = 0;
+	while (index_buffer < BUFFER_SIZE_PRINTF)
+	{
+		ft_strlcpy(buffer + index_bf, src[i], 1);
+		++i;
+		++index_buffer;
+	}
+	return (i);
 }

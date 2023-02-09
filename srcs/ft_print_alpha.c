@@ -12,9 +12,14 @@
 
 #include "ft_printf.h"
 
-void	get_arg_c(char	**buffer, int c, char	**str_final)
+void	get_arg_c(char	**buffer, char c, char	**str_final)
 {
-	size_t index_buffer;
+	size_t index_src;
 
-	
+	index_src = add_buffer_string(buffer, (char	*)c);
+	if (index_src > -1)
+	{
+		add_str(str_final, buffer, BUFFER_SIZE_PRINTF);
+		ft_bzero(buffer, BUFFER_SIZE);
+	}
 }
