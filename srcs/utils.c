@@ -47,3 +47,5 @@ int	how_printable(char c)
 	}
 	return (-1);
 }
+
+void	pourcent_write(**buffer, )
