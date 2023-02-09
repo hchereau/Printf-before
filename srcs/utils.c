@@ -18,7 +18,7 @@ size_t	add_buffer_string(char **buffer, char *src)
 	const	size_t	len_src = ft_strlen(src);
 	size_t			i;
 
-	if (len_src + index_bf < BUFFER_SIZE)
+	if (len_src + index_bf < BUFFER_SIZE_PRINTF)
 	{
 		ft_strlcpy(buffer + index_bf, src, len_src);
 		return (-1);
