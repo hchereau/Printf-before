@@ -12,30 +12,18 @@
 
 #include "ft_printf.h"
 
-size_t	add_buffer_string(char **buffer, char *src)
+ssize_t	add_buffer_string(char *buffer, char *src)
 {
 	const	size_t	index_buffer = ft_strlen(buffer);
 	const	size_t	len_src = ft_strlen(src);
-	size_t			i;
+	ssize_t			i;
 
-	if (len_src + index_bf < BUFFER_SIZE_PRINTF)
-	{
-		ft_strlcpy(buffer + index_bf, src, len_src);
-		return (-1);
-	}
-	i = 0;
-	while (index_buffer < BUFFER_SIZE_PRINTF)
-	{
-		ft_strlcpy(buffer + index_bf, src[i], 1);
-		++i;
-		++index_buffer;
-	}
-	return (i);
+	
 }
 
 int	how_printable(char c)
 {
-	const	char	verif[] = "cspdiuxX%"
+	const	char	verif[] = "cspdiuxX%";
 	size_t			i;
 
 	i = 0;
@@ -47,5 +35,3 @@ int	how_printable(char c)
 	}
 	return (-1);
 }
-
-void	pourcent_write(**buffer, )

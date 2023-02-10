@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-i
+
 int	ft_printf(const char *str,...)
 {
 	va_list			args;
@@ -28,16 +28,11 @@ int	ft_printf(const char *str,...)
 		{
 			fun_tab[how_printable(str[i + 1](buffer, args, str_final);
 		}
-		else
-		{
-			if (add_buffer_string(buffer, (char *)str[i] != -1)
-				add_str(str_final, buffer)
-		}
 		++i;
 	}
 	va_end(args);
 	print_str_final(str_final, buffer);
-	return (ft_strlen(str_final))
+	return (ft_strlen(str_final));
 }
 
 /*

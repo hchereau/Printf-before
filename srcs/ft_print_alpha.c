@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	get_arg_c(char	**buffer, va_list c, char	**str_final)
+void	get_arg_c(char	*buffer, va_list c, char	*str_final)
 {
 	size_t 				index_src;
 	unsigned	char	character;
