@@ -12,55 +12,34 @@
 
 printf
 process:
-1	-> parcourir chaine jusqu'a trouver un %
-2	-> regarder si le caractere derriere le % est un caractere valable
-3	-> se referer a l'argurment suivant pour afficher
-4	-> afficher tout
-5	-> return le nombre de caractere imprimer
-
-1 -> while
-
-2 -> fonction how_printable(car)
-
-3 -> tab fonction
-
-4 -> write str_final
-
-5 return ft_strlen(str_final)
-	
-passer en int la chaine total puis la return
-
-how_printable:
-but: retourner l'index du meme caractere que l'input
-input : caractere apres un %
-output : l'index de la liste correspondant au caractere ou -1 si le caractere n'est pas dans la liste
-process :
-	-> parcourir la liste
-	-> si element liste == carac
-		-> return index
-	-> return -1
-
-get_arg_c:
-but: ajouter l'arg %c dans le buffer
-input : va_list buffer
-outputs: taille arg + buffer
+	-> return (write(1, get_string_final, len_str_final))
+ 
+get_string_final
+inputs: struct buffer_data, struct string_final_data
+outputs: string final
 process:
-	-> appelle add_buffer string
-	-> si add_string renvoie autre chose que -1
-		-> ajouter le buffer a str_final
-		-> ft_bzero sur le buffer
+	-> ft_bzero sur le buffer
+	-> while sur la string
+	->	si %, appelle how-printable pour savoir si comment mettre le caractère dans le buffer
+	-> si how_printable == -1
+		-> mettre le pourcentage dans le buffer et passé a la suite avec add_buffer_string
+	-> sinon appeller la fonction correspondant au caractere dans le tableau de fonction
+	->fin du while
+	-> return (str_final);
 
-add_buffer:
-but: remplir le buffer
-input: buffer, va_list, index_buffer
-outputs:
+add_buffer_string
+inputs: struct buffer_data, struct string_final_data, char	*string
+outputs: rien
 process:
-	-> verifie si src + index_buffer est plus grand que la taille du buffer
-		-> remplie src dans buffer
-	->remplie 
+	-> si l'index_buffer + ft_strlen(string) <= BUFFER_SIZE_PRINTF
+		-> copier la string dans le buffer avec strlcpy
+	-> sinon
+		-> remplir les dernier character dans le buffer avec add_last_buffer
+		-> remplir str_final avec buffer avec add_str
+		-> bzero buffer
+		-> rappeller add_buffer_string avec l'index du dernier character de str copié
 
  
-
 static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
 

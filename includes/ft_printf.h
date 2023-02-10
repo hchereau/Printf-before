@@ -13,10 +13,18 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define BUFFER_SIZE_PRINTF 1024
+
 # include <stdarg.h>
 
-int		ft_printf(const char *, ...);
-int		how_printabl(car);
-int		get_arg_c(char	**buffer, va_list **arg);
+struct	buffer_data {
+	size_t	index_buffer;
+	char	*buffer;
+}
+
+struct	string_final_data {
+	char	*str_final;
+	size_t	len_str_final;
+}
 
 #endif
