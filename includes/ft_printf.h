@@ -22,7 +22,7 @@ struct	buffer_data {
 	char	*buffer;
 }
 
-struct	string_final_data {
+struct	strf_data {
 	char	*str_final;
 	size_t	len_str_final;
 }

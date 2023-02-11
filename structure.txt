@@ -49,6 +49,15 @@ process:
 		-> ++i;
 	return (i)
 
+BUFFER_SIZE  3 2
+
+index_buffer 0 1
+
+i		     0 1
+
+string		 s
+
+
 
 static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
