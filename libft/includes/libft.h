@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:25:53 by hchereau          #+#    #+#             */
-/*   Updated: 2022/12/11 22:09:16 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:39:27 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <bsd/string.h>
 # include <stdbool.h>
 # include <unistd.h>
-# include "get_next_line_bonus.h"
+# include "get_next_line.h"
 
 # define DIFF_LOWER_UPPER 32
 

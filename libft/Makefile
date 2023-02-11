@@ -1,104 +1,96 @@
-NAME = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/11 19:35:48 by hchereau          #+#    #+#              #
+#    Updated: 2023/02/11 19:41:23 by hchereau         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-### SRCS
+NAME := libft
+LIBRARY := ${addsuffix .a, ${NAME}}
 
-PATH_SRCS = srcs/
+PATH_SRCS += srcs
 
-SRCS += ft_isalpha.c
-SRCS += ft_isdigit.c
-SRCS += ft_isalnum.c
-SRCS += ft_isascii.c
-SRCS += ft_isprint.c
-SRCS += ft_strlen.c
-SRCS += ft_memset.c
-SRCS += ft_bzero.c
-SRCS += ft_memcpy.c
-SRCS += ft_memmove.c
-SRCS += ft_strlcpy.c
-SRCS += ft_strlcat.c
-SRCS += ft_toupper.c
-SRCS += ft_tolower.c
-SRCS += ft_strchr.c
-SRCS += ft_strrchr.c
-SRCS += ft_strncmp.c
-SRCS += ft_memchr.c
-SRCS += ft_memcmp.c
-SRCS += ft_substr.c
-SRCS += ft_strjoin.c
-SRCS += ft_strtrim.c
-SRCS += ft_strnstr.c
-SRCS += ft_split.c
-SRCS += ft_itoa.c
-SRCS += ft_strmapi.c
-SRCS += ft_striteri.c
-SRCS += ft_putchar_fd.c
-SRCS += ft_putstr_fd.c
-SRCS += ft_putendl_fd.c
-SRCS += ft_putnbr_fd.c
-SRCS += ft_strdup.c
-SRCS += ft_atoi.c
-SRCS += ft_calloc.c
-SRCS += get_next_line_bonus.c
-SRCS += get_next_line_utils_bonus.c
+FILES += ft_isalpha
+FILES += ft_isdigit
+FILES += ft_isalnum
+FILES += ft_isascii
+FILES += ft_isprint
+FILES += ft_strlen
+FILES += ft_memset
+FILES += ft_bzero
+FILES += ft_memcpy
+FILES += ft_memmove
+FILES += ft_strlcpy
+FILES += ft_strlcat
+FILES += ft_toupper
+FILES += ft_tolower
+FILES += ft_strchr
+FILES += ft_strrchr
+FILES += ft_strncmp
+FILES += ft_memchr
+FILES += ft_memcmp
+FILES += ft_substr
+FILES += ft_strjoin
+FILES += ft_strtrim
+FILES += ft_strnstr
+FILES += ft_split
+FILES += ft_itoa
+FILES += ft_strmapi
+FILES += ft_striteri
+FILES += ft_putchar_fd
+FILES += ft_putstr_fd
+FILES += ft_putendl_fd
+FILES += ft_putnbr_fd
+FILES += ft_strdup
+FILES += ft_atoi
+FILES += ft_calloc
+FILES += get_next_line
+FILES += get_next_line_utils
 
-SRCS_BONUS += ft_lstnew.c
-SRCS_BONUS += ft_lstadd_front.c
-SRCS_BONUS += ft_lstsize.c
-SRCS_BONUS += ft_lstlast.c
-SRCS_BONUS += ft_lstadd_back.c
-SRCS_BONUS += ft_lstdelone.c
-SRCS_BONUS += ft_lstclear.c
-SRCS_BONUS += ft_lstiter.c
-SRCS_BONUS += ft_lstmap.c
+FILES += ft_lstnew
+FILES += ft_lstadd_front
+FILES += ft_lstsize
+FILES += ft_lstlast
+FILES += ft_lstadd_back
+FILES += ft_lstdelone
+FILES += ft_lstclear
+FILES += ft_lstiter
+FILES += ft_lstmap
 
-vpath %.c $(PATH_SRCS)
+SRCS := ${addsuffix .c, ${FILES}}
 
-### HEADER
+INCLUDES := includes
+HEADER := includes/libft.h
 
-INCLUDES = -Iincludes/
+vpath %.c ${PATH_SRCS}
 
-HEADER += libft.h
+PATH_OBJS := objs
+OBJS := ${patsubst %.c, ${PATH_OBJS}/%.o, ${SRCS}}
 
-vpath %.h $(PATH_HEADER)
+AR := ar rcs
+CC := cc
+CFLAGS := -Wall -Wextra -Werror
 
-### OBJS
+all: ${LIBRARY}
 
-PATH_OBJS = objs/
-OBJS = $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
+${LIBRARY}: ${OBJS}
+	${AR} ${LIBRARY} $^
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-
-### COMPILATION
-
-CC = clang
-CFLAGS += -Werror
-CFLAGS += -Wextra
-CFLAGS += -Wall
-
-AR = ar rc
-
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-
-all: $(NAME)
-
-$(OBJS): $(SRCS)
-	mkdir -p $(PATH_OBJS)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
-
-bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
+${OBJS}: ${PATH_OBJS}/%.o: %.c ${HEADER}
+	@mkdir -p ${PATH_OBJS}
+	${CC} ${CFLAGS} -fPIC -c $< -o $@ -I${INCLUDES}
 
 clean:
-	$(RM) -r $(PATH_OBJS)
+	rm -rf ${PATH_OBJS}
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f ${LIBRARY}
 
-re: fclean all
+re: fclean ${LIBRARY}
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_BONUS)
-
-.PHONY: all test clean fclean re
+.PHONY: all clean fclean re
