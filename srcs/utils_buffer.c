@@ -22,9 +22,19 @@ size_t	add_last_buffer(struct buffer_data *mbuffer, char *str)
 	return (i);
 }
 
-add_buffer_string (struct buffer_data *mbuffer, struct strf_data, char *string)
+add_buffer_str (struct buffer_data *mbuffer, struct strf_data m_strf, char *str)
 {
-	
+	size_t	len_str;
+	size_t	index_str;
+
+	len_str = ft_strlen(str)
+	if (mbuffer->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
+		ft_strlcpy(mbuffer->buffer, str, len_str);
+	else
+		index_str = add_last_buffer(&mbuffer, str);
+		add_str(&m_strf->str_final, mbuffer->buffer, BUFFER_SIZE_PRINTF);
+		ft_bzero(mbuffer->buffer, BUFFER_SIZE_PRINTF);
+		add_buffer_string(&mbuffer, &m_strf)
 }
 /*
 int main(void)

@@ -6,7 +6,7 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/04 11:55:11 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/11 13:00:35 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 struct	buffer_data {
 	size_t	index_buffer;
 	char	*buffer;
-}
+}				
 
 struct	strf_data {
 	char	*str_final;
