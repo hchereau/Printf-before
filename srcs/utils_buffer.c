@@ -6,15 +6,14 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/12 12:29:31 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/12 12:43:19 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-#include <stdlib.h>
 
-#define BUFFER_SIZE_PRINTF 1
+#define BUFFER_SIZE_PRINTF 1024
 
 typedef struct	s_data {
 	size_t	index_buffer;
@@ -42,21 +41,21 @@ void	add_buffer_string(t_data *data, char *str)
 	size_t	len_str;
 	size_t	index_str;
 
-	len_str = ft_strlen(str);
+	len_str = ft_strlen(str) + 1;
 	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
+	{
 		ft_strlcpy(data->buffer, str, len_str);
+	}
 	else
 	{
 		index_str = add_last_buffer(data, str);
-		printf("%ld\n", index_str);
 		add_str(&data->str_final, data->buffer, BUFFER_SIZE_PRINTF);
-		printf("%s\n", str + index_str);
 		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
 		data->index_buffer = 0;
 		add_buffer_string(data, str + index_str);
 	}
 }
-
+/*
 int main(void)
 {
 	struct	s_data data;
@@ -66,3 +65,5 @@ int main(void)
 	add_buffer_string(&data, str);
 	printf("buffer: %s\nstr_final: %s", data.buffer, data.str_final);
 }
+pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out
+*/
