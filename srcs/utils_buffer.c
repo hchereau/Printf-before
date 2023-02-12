@@ -1,51 +1,68 @@
-/*
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_buffer.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
+/*   Updated: 2023/02/12 12:29:31 by hchereau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-#define BUFFER_SIZE_PRINTF 3
+#define BUFFER_SIZE_PRINTF 1
 
-struct	buffer_data {
+typedef struct	s_data {
 	size_t	index_buffer;
 	char	buffer[BUFFER_SIZE_PRINTF];
-};
-*/
-size_t	add_last_buffer(struct buffer_data *mbuffer, char *str)
+	char	*str_final;
+	size_t	len_str_final;
+}	t_data;
+
+size_t	add_last_buffer(t_data *data, char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (BUFFER_SIZE_PRINTF - mbuffer->index_buffer > 0)
+	while (data->index_buffer < BUFFER_SIZE_PRINTF)
 	{
-		mbuffer->buffer[mbuffer->index_buffer] = str[i];
+		data->buffer[data->index_buffer] = str[i];
 		++i;
-		++mbuffer->index_buffer;
+		++data->index_buffer;
 	}
 	return (i);
 }
 
-add_buffer_str (struct buffer_data *mbuffer, struct strf_data m_strf, char *str)
+void	add_buffer_string(t_data *data, char *str)
 {
 	size_t	len_str;
 	size_t	index_str;
 
-	len_str = ft_strlen(str)
-	if (mbuffer->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
-		ft_strlcpy(mbuffer->buffer, str, len_str);
+	len_str = ft_strlen(str);
+	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
+		ft_strlcpy(data->buffer, str, len_str);
 	else
-		index_str = add_last_buffer(&mbuffer, str);
-		add_str(&m_strf->str_final, mbuffer->buffer, BUFFER_SIZE_PRINTF);
-		ft_bzero(mbuffer->buffer, BUFFER_SIZE_PRINTF);
-		add_buffer_string(&mbuffer, &m_strf)
+	{
+		index_str = add_last_buffer(data, str);
+		printf("%ld\n", index_str);
+		add_str(&data->str_final, data->buffer, BUFFER_SIZE_PRINTF);
+		printf("%s\n", str + index_str);
+		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
+		data->index_buffer = 0;
+		add_buffer_string(data, str + index_str);
+	}
 }
-/*
+
 int main(void)
 {
-	struct	buffer_data mbuffer;
-	char	str[5] = "salut";
-	size_t	index;
+	struct	s_data data;
+	char	str[] = "salutsalut";
 
-	mbuffer.index_buffer = 0;
-	index = add_last_buffer(&mbuffer, str);
-
-	printf("buffer:%s\n\n index:%ld", mbuffer.buffer, index);
+	data.index_buffer = 0;
+	add_buffer_string(&data, str);
+	printf("buffer: %s\nstr_final: %s", data.buffer, data.str_final);
 }
-*/

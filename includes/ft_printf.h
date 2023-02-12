@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/11 13:00:35 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:43:35 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@
 
 # include <stdarg.h>
 
-struct	buffer_data {
+typedef struct	s_data {
 	size_t	index_buffer;
-	char	*buffer;
-}				
-
-struct	strf_data {
+	char	buffer[BUFFER_SIZE_PRINTF];
 	char	*str_final;
 	size_t	len_str_final;
-}
+}	t_data;
 
 #endif
