@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/12 12:43:19 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:56:13 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 typedef struct	s_data {
 	size_t	index_buffer;
 	char	buffer[BUFFER_SIZE_PRINTF];
-	char	*str_final;
-	size_t	len_str_final;
+	size_t	len_final;
 }	t_data;
 
 size_t	add_last_buffer(t_data *data, char *str)
@@ -49,7 +48,7 @@ void	add_buffer_string(t_data *data, char *str)
 	else
 	{
 		index_str = add_last_buffer(data, str);
-		add_str(&data->str_final, data->buffer, BUFFER_SIZE_PRINTF);
+		data->len_final += write(1, data.buffer, index_buffer);
 		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
 		data->index_buffer = 0;
 		add_buffer_string(data, str + index_str);
