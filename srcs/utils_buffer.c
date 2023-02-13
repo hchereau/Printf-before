@@ -6,21 +6,11 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/12 12:43:19 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/13 22:00:08 by rbroque          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-
-#define BUFFER_SIZE_PRINTF 1024
-
-typedef struct	s_data {
-	size_t	index_buffer;
-	char	buffer[BUFFER_SIZE_PRINTF];
-	char	*str_final;
-	size_t	len_str_final;
-}	t_data;
+#include "ft_printf.h"
 
 size_t	add_last_buffer(t_data *data, char *str)
 {
@@ -55,15 +45,3 @@ void	add_buffer_string(t_data *data, char *str)
 		add_buffer_string(data, str + index_str);
 	}
 }
-/*
-int main(void)
-{
-	struct	s_data data;
-	char	str[] = "salutsalut";
-
-	data.index_buffer = 0;
-	add_buffer_string(&data, str);
-	printf("buffer: %s\nstr_final: %s", data.buffer, data.str_final);
-}
-pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out
-*/

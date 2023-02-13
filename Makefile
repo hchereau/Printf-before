@@ -1,6 +1,19 @@
 NAME = libprintf.a
 
+###LIBFT
+
+LIBFT_FOLDER += libft/
+LIBFT += $(LIBFT_FOLDER)/libft.a
+
 ###SRCS
+
+PATH_SRCS += srcs/
+
+#SRCS += ft_printf.c
+SRCS += utils_buffer.c
+SRCS += utils.c
+
+vpath %.c $(PATH_SRCS)
 
 ### OBJS
 
@@ -8,10 +21,14 @@ PATH_OBJS = objs/
 
 OBJS = $(patsubst %.c, ${PATH_OBJS}/%.o, ${SRCS})
 
-### TESTS
+### INCLUDES
 
-TEST_FOLDER = test/
-RUN_TESTS = $(TEST_FOLDER)/run_test
+INCLUDES_FT_PRINTF += includes/
+INCLUDES_LIBFT += $(LIBFT_FOLDER)/includes/
+INCLUDES += -I $(INCLUDES_FT_PRINTF)
+INCLUDES += -I $(INCLUDES_LIBFT)
+
+HEADER += $(INCLUDES_FT_PRINTF)/ft_printf.h
 
 ### COMPILATION
 
@@ -29,46 +46,46 @@ AR = ar rc
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 
-$(OBJS): ${PATH_OBJS}/%.o: %.c
+$(OBJS): ${PATH_OBJS}/%.o: %.c $(HEADER)
 	mkdir -p ${PATH_OBJS}
-	${CC} ${CFLAGS} -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@ $(INCLUDES)
 
-test: $(NAME)
-	$(MAKE) -sC $(TEST_FOLDER)
-	echo -n "\n<------TESTS------>\n\n\n"
-	./$(RUN_TESTS)
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_FOLDER)
 
 clean:
 	${RM} -R ${PATH_OBJS}
-	$(MAKE) -C $(TEST_FOLDER) clean
+	$(MAKE) -C $(LIBFT_FOLDER) clean
 
 fclean: clean
 	${RM} ${NAME}
-	$(MAKE) -C $(TEST_FOLDER) fclean
+	$(MAKE) -C $(LIBFT_FOLDER) fclean
 
 re: fclean
 	$(MAKE)
-norm:
-	@echo "\033[44;97;1m               \033[0m"
-	@echo "\033[44;97;1m  LIBFT NORM:  \033[46;97;1m  \033[0m"
-	@echo "\033[44;97;1m               \033[46;97;1m  \033[0m"
-	@echo " \033[46;97;1m                \033[0m"
-	@norminette libft | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
-	@echo "\n"
-	@echo "\033[44;97;1m                 \033[0m"
-	@echo "\033[44;97;1m  SOURCES NORM:  \033[46;97;1m  \033[0m"
-	@echo "\033[44;97;1m                 \033[46;97;1m  \033[0m"
-	@echo " \033[46;97;1m                  \033[0m"
-	@norminette srcs | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
-	@echo "\n"
-	@echo "\033[44;97;1m                  \033[0m"
-	@echo "\033[44;97;1m  INCLUDES NORM:  \033[46;97;1m  \033[0m"
-	@echo "\033[44;97;1m                  \033[46;97;1m  \033[0m"
-	@echo " \033[46;97;1m                   \033[0m"
-	@norminette includes | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
 
-.PHONY: all test clean fclean re
-.SILENT: test
+norm:
+	echo "\033[44;97;1m               \033[0m"
+	echo "\033[44;97;1m  LIBFT NORM:  \033[46;97;1m  \033[0m"
+	echo "\033[44;97;1m               \033[46;97;1m  \033[0m"
+	echo " \033[46;97;1m                \033[0m"
+	norminette libft | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
+	echo "\n"
+	echo "\033[44;97;1m                 \033[0m"
+	echo "\033[44;97;1m  SOURCES NORM:  \033[46;97;1m  \033[0m"
+	echo "\033[44;97;1m                 \033[46;97;1m  \033[0m"
+	echo " \033[46;97;1m                  \033[0m"
+	norminette srcs | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
+	echo "\n"
+	echo "\033[44;97;1m                  \033[0m"
+	echo "\033[44;97;1m  INCLUDES NORM:  \033[46;97;1m  \033[0m"
+	echo "\033[44;97;1m                  \033[46;97;1m  \033[0m"
+	echo " \033[46;97;1m                   \033[0m"
+	norminette includes | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
+
+.PHONY: all clean fclean re
+.SILENT: norm
