@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/10 20:32:39 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/13 12:37:06 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ process:
 	-> return (write(1, get_string_final, len_str_final))
  
 get_string_final
-inputs: struct buffer_data, struct string_final_data
+inputs: struct buffer_data, struct string_final_data, 
 outputs: string final
 process:
 	-> ft_bzero sur le buffer
@@ -37,7 +37,7 @@ process:
 		-> remplir les dernier character dans le buffer avec add_last_buffer
 		-> remplir str_final avec buffer avec add_str
 		-> bzero buffer
-		-> rappeller add_buffer_string avec l'index du dernier character de str copié
+		-> rappeller add_buffer_string avec l'index du dernier character de str cop
 
 add_last_buffer:
 but: ajouter les derniers caractere possible au buffer
@@ -49,14 +49,13 @@ process:
 		-> ++i;
 	return (i)
 
-BUFFER_SIZE  3 2
-
-index_buffer 0 1
-
-i		     0 1
-
-string		 s
-
+get_arg_c:
+but: recuperer l'argument char et l'ajouter au buffer
+inputs: t_data, va_list
+outputs: rien
+process:
+	
+	
 
 
 static int	(*handlers[])(t_print *print, va_list valist)
