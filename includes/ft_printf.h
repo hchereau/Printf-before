@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/13 22:02:02 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:36:05 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ typedef struct	s_data {
 }	t_data;
 
 void	add_buffer_string(t_data *data, char *str);
+void	get_arg_c(t_data data, va_list args);
 
 #endif

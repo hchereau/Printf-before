@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/14 12:17:53 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:27:25 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(const char str*, ...)
 		if (*str == '%' && index_funtab != -1)
 				funtab[index_funtab](data, args);
 		else
-			
+			add_buffer_string(&data, &str[0]);
 		++str;
 	}
 	return (write(1, data.str_final, ft_strlen(str_final)));
