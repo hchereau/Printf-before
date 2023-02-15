@@ -37,7 +37,6 @@ CC = clang
 CFLAGS += -Werror
 CFLAGS += -Wextra
 CFLAGS += -Wall
-#CFLAGS += -lbsd
 
 ifeq (${debug}, true)
 	CFLAGS += -fsanitize=address,undefined -g3
@@ -53,7 +52,7 @@ $(NAME): $(LIBFT) $(OBJS)
 
 $(OBJS): ${PATH_OBJS}/%.o: %.c $(HEADER)
 	mkdir -p ${PATH_OBJS}
-	${CC} ${CFLAGS} -c $< -o $@ $(INCLUDES)
+	${CC} ${CFLAGS} -c $< -o $@ -I $(INCLUDES_LIBFT) -I $(INCLUDES_FT_PRINTF)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_FOLDER)

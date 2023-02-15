@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/15 19:36:41 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:54:31 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+
+
 /*
 int main(void)
 {
@@ -27,7 +30,7 @@ int	main(void)
 {
 	char c;
 
-	c = c;
+	c = 'c';
 	ft_printf("salut %c", c);
 }
 //pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out

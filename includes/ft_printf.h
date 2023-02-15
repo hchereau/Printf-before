@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/15 19:25:07 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:43:03 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUFFER_SIZE_PRINTF 1024
 
 # include <stdarg.h>
-# include "libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct	s_data {
 	size_t	index_buffer;
