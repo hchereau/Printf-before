@@ -9,9 +9,10 @@ LIBFT += $(LIBFT_FOLDER)/libft.a
 
 PATH_SRCS += srcs/
 
-#SRCS += ft_printf.c
+SRCS += ft_printf.c
 SRCS += utils_buffer.c
 SRCS += utils.c
+SRCS += utils_string.c
 
 vpath %.c $(PATH_SRCS)
 

@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/13 22:00:08 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/15 19:17:20 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	add_buffer_string(t_data *data, char *str)
 	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
 	{
 		ft_strlcpy(data->buffer, str, len_str);
+		data->index_buffer = len_str;
 	}
 	else
 	{

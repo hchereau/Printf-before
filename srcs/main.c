@@ -6,12 +6,12 @@
 /*   By: rbroque <rbroque@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/13 22:00:17 by rbroque          ###   ########.fr       */
+/*   Updated: 2023/02/15 19:36:41 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+#include "../includes/ft_printf.h"
+/*
 int main(void)
 {
 	struct	s_data data;
@@ -20,5 +20,14 @@ int main(void)
 	data.index_buffer = 0;
 	add_buffer_string(&data, str);
 	printf("buffer: %s\nstr_final: %s", data.buffer, data.str_final);
+}
+*/
+
+int	main(void)
+{
+	char c;
+
+	c = c;
+	ft_printf("salut %c", c);
 }
 //pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out
