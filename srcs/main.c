@@ -31,7 +31,7 @@ int	main(void)
 	char c;
 
 	c = 'c';
-	ft_printf("salut %c", 'c');
+	ft_printf("salut %c", c);
 }
 
 //pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out

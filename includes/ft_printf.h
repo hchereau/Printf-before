@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/16 15:47:26 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/16 10:50:29 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct	s_data {
 	size_t	index_buffer;
 	char	buffer[BUFFER_SIZE_PRINTF];
-//	char	*str_final;
+	char	*str_final;
 	size_t	len_str_final;
 }	t_data;
 

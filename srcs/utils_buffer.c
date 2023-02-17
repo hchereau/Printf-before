@@ -35,7 +35,9 @@ void	add_buffer_string(t_data *data, char *str)
 	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
 	{
 		ft_strlcpy(data->buffer + data->index_buffer, str, len_str);
-		data->index_buffer = len_str + 1;
+		data->index_buffer = len_str;
+		printf("index_buffer: %ld\n\n", data->index_buffer);
+		
 	}
 	else
 	{
