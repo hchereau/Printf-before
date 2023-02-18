@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/13 12:37:06 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/18 18:00:24 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,16 @@ inputs: t_data, va_list
 outputs: rien
 process:
 	
-	
+
+
+convert base:
+but: convertir un size_t en une base donnee
+inputs: size_t nb, char *base	
+outputs: le size_t converti
+process:
+	-> ft_strlen(base)
+	-> while nb > 10
+		-> nb%10 * 
 
 
 static int	(*handlers[])(t_print *print, va_list valist)

@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 15:58:21 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:00:24 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_printf(const char *str, ...)
 	struct	s_data	data;
 	va_list			args;
 	ssize_t			index_funtab;
-	static	void	(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string
-};
+	static	void	(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string,
+ get_arg_p};
 
 	va_start(args, str);
 	data.len_str_final = 0;
