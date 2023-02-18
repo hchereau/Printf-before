@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 13:20:43 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:45:50 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	add_buffer_string(t_data *data, char *str)
 	{
 		ft_strlcpy(data->buffer + data->index_buffer, str, len_str + 1);
 		data->index_buffer += len_str;
-		printf("index_buffer: %ld\n\n", data->index_buffer);
+//		printf("index_buffer: %ld\n\n", data->index_buffer);
 	}
 	else
 	{

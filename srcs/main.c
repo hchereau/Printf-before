@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/18 13:14:34 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:31:11 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 	char c;
 
 	c = 'c';
-	ft_printf("salut");
+	ft_printf("salut %c", c);
 }
 
 //pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out
