@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 13:05:04 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:19:41 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(const char *str, ...)
 			get_char(&data, str[0]);
 		++str;
 	}
-	if (data.index_buffer != 0)
+	if (data.index_buffer > 0)
 		write(1, data.buffer, data.index_buffer + 1);
 	va_end(args);
 	return (data.len_str_final);
