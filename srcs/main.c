@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/18 13:31:11 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 16:05:40 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	printf("buffer: %s\nstr_final: %s", data.buffer, data.str_final);
 }
 */
-
+/*
 int	main(void)
 {
 	char c;
@@ -33,5 +33,17 @@ int	main(void)
 	c = 'c';
 	ft_printf("salut %c", c);
 }
+*/
+/*
+int main(void)
+{
+	const char	str[] = "bravo";
+	int			oui;
+	int			ok;
 
-//pour compiler : cc srcs/utils_buffer.c libft/libft.a -I./libft/includes && ./a.out
+	ok = printf("salut %s\n\n", str);
+	printf("%d", ok);
+	oui = ft_printf("salut %s\n\n", str);
+	printf("%d", oui);
+}
+*/
