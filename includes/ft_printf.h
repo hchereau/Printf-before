@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/16 10:50:29 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:02:35 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_data {
 
 void	add_buffer_string(t_data *data, char *str);
 void	get_arg_c(t_data data, va_list args);
+void	get_char(t_data *data, char c);
 void	get_arg_string(t_data data, va_list args);
 int		ft_printf(const char *str, ...);
 ssize_t	how_printable(char c);

@@ -6,7 +6,7 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:33:02 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/16 14:47:13 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:07:17 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,13 @@ void	get_arg_string(t_data data, va_list args)
 
 	string = va_arg(args, char *);
 	add_buffer_string(&data, string);
+}
+
+void	get_char(t_data *data, char c)
+{
+	char	c_str[2];
+
+	c_str[0] = c;
+	c_str[1] = '\0';
+	add_buffer_string(data, c_str);
 }
