@@ -6,8 +6,11 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:24:58 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 18:00:24 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:55:22 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-get_arg_p
+void	get_arg_p(t_data *data, va_list args)
+{
+
+}
