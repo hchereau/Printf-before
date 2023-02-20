@@ -12,5 +12,7 @@
 
 void	get_arg_p(t_data *data, va_list args)
 {
+	size_t	
 
+	va_arg(args, size_t);	
 }

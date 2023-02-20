@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # define BUFFER_SIZE_PRINTF 1024
+# define BASE_HEXA "0123456789ABCDEF"
 
 # include <stdarg.h>
 # include "../libft/includes/libft.h"
@@ -29,6 +30,7 @@ void	add_buffer_string(t_data *data, char *str);
 void	get_arg_c(t_data *data, va_list args);
 void	get_char(t_data *data, char c);
 void	get_arg_string(t_data *data, va_list args);
+void	convert_base(size_t nb, char	*base);
 int		ft_printf(const char *str, ...);
 ssize_t	how_printable(char c);
 size_t	get_size_final(t_data *data);

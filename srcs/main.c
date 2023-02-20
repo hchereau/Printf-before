@@ -47,3 +47,13 @@ int main(void)
 	printf("%d", oui);
 }
 */
+/*
+int	main(void)
+{
+	size_t	nb;
+
+	nb = 2556;
+	printf("9FC");
+	convert_base(nb, BASE_HEXA);	
+}
+*/
