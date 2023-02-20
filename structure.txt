@@ -6,7 +6,7 @@
 #    By: hchereau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:37:54 by hchereau          #+#    #+#              #
-#    Updated: 2023/02/20 12:33:50 by hchereau         ###   ########.fr        #
+#    Updated: 2023/02/20 13:39:02 by hchereau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,14 @@ but: recuperer l'argument char et l'ajouter au buffer
 inputs: t_data, va_list
 outputs: rien
 process:
-	
 
+get_arg_p:
+but: recuperer l'arg void * et l'ajouter au buffer ne hexa
+inputs: t_data, va_list
+outputs: rien
+process:
+	-> passer void * en size_t
+	-> convert_base size_t base hexa
 
 convert base:
 but: convertir un size_t en une base donnee
@@ -63,19 +69,9 @@ inputs: size_t nb, char *base
 outputs: le size_t converti
 process:
 	-> len_base=ft_strlen(base)
-	-> while nb > len_base
-		-> nb 
-
-
-ft_pow:
-but: renvoyer la puissance demander du nombre donnee
-inputs: size_t nb, size_t multiplicateur
-outputs: nb puissance multi
-process:
-	-> while multi > 0:
-		-> nb *= nb;
-		-> --multi;
-	return (nb);
+	->  nb > len_base
+		-> convert_base(nb/len_base)
+		-> ajouter au buffer base[nb%len_base]
 
 static int	(*handlers[])(t_print *print, va_list valist)
 		= {hdl_c, hdl_s, hdl_ps, hdl_p, hdl_di, hdl_di, hdl_u, hdl_x, hdl_x};
