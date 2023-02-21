@@ -9,10 +9,12 @@
 /*   Updated: 2023/02/20 11:55:22 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "ft_printf.h"
 void	get_arg_p(t_data *data, va_list args)
 {
-	size_t	
+	size_t nb;	
 
-	va_arg(args, size_t);	
+	nb = va_arg(args, size_t);
+	add_buffer_string(data, "0x");
+	convert_base(data, nb, BASE_HEXA_MINUS);
 }

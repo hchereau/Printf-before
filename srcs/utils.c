@@ -41,6 +41,6 @@ void	convert_base(t_data *data, size_t nb, char	*base)
 	const size_t len_base = ft_strlen(base);
 
 	if (nb > len_base)
-		convert_base(nb/len_base, base);
+		convert_base(data, nb/len_base, base);
 	get_char(data, base[nb%len_base]);
 }

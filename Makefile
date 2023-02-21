@@ -13,6 +13,7 @@ SRCS += ft_printf.c
 SRCS += utils_buffer.c
 SRCS += utils.c
 SRCS += utils_string.c
+SRCS += utils_pointeur.c
 SRCS += main.c
 
 vpath %.c $(PATH_SRCS)

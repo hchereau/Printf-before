@@ -17,8 +17,8 @@ int	ft_printf(const char *str, ...)
 	struct	s_data	data;
 	va_list			args;
 	ssize_t			index_funtab;
-	static	void	(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string
-};
+	static	void	(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string,
+get_arg_p};
 
 	va_start(args, str);
 	data.len_str_final = 0;

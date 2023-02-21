@@ -34,19 +34,20 @@ int	main(void)
 	ft_printf("salut %c", c);
 }
 */
-/*
+
 int main(void)
 {
-	const char	str[] = "bravo";
+	size_t	nb = 555;
+	void	*p = &nb;
 	int			oui;
 	int			ok;
 
-	ok = printf("salut %s\n\n", str);
+	ok = printf("salut %p\n\n", p);
 	printf("%d", ok);
-	oui = ft_printf("salut %s\n\n", str);
+	oui = ft_printf("salut %p\n\n", p);
 	printf("%d", oui);
 }
-*/
+
 /*
 int	main(void)
 {
