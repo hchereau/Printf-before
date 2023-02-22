@@ -6,12 +6,20 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/22 12:02:18 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:41:19 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/*
+static void		get_char_without_pourcent(t_data *data, char c)
+{
+	if (c == '%')
+		return ;
+	else
+		get_char(data, c);
+}
+*/
 int	ft_printf(const char *str, ...)
 {
 	struct	s_data	data;

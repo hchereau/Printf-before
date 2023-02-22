@@ -1,4 +1,4 @@
-NAME = libprintf.a
+NAME = libftprintf.a
 
 ###LIBFT
 
@@ -16,6 +16,7 @@ SRCS += utils_string.c
 SRCS += utils_pointeur.c
 SRCS += utils_num.c
 SRCS += ft_uitoa.c
+SRCS += main.c
 
 vpath %.c $(PATH_SRCS)
 

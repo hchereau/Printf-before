@@ -6,7 +6,7 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:28:34 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/21 19:21:02 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:51:54 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char	*ft_uitoa(unsigned int n)
 	str_nb = (char *)malloc((size_nb + is_neg + 1) * sizeof(char));
 	if (str_nb != NULL)
 	{
-		if (n < 0)
-			str_nb[0] = '-';
+//		if (n < 0)
+//			str_nb[0] = '-';
 		cp_nb(str_nb + is_neg, n, size_nb);
 	}
 	return (str_nb);
