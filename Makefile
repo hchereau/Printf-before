@@ -14,7 +14,8 @@ SRCS += utils_buffer.c
 SRCS += utils.c
 SRCS += utils_string.c
 SRCS += utils_pointeur.c
-SRCS += main.c
+SRCS += utils_num.c
+SRCS += ft_uitoa.c
 
 vpath %.c $(PATH_SRCS)
 

@@ -6,7 +6,7 @@
 /*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:33:02 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 15:17:03 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:02:01 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,14 @@ void	get_char(t_data *data, char c)
 	c_str[0] = c;
 	c_str[1] = '\0';
 	add_buffer_string(data, c_str);
+}
+
+int	add_pourcent(t_data *data, ssize_t index_funtab)
+{
+	if (index_funtab == 8)
+	{
+		get_char(data, '%');
+		return(1);
+	}
+	return (-1);
 }
