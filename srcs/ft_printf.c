@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/22 14:41:19 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/24 23:16:33 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_printf(const char *str, ...)
 	data.str_final = NULL;
 	va_start(args, str);
 	data.len_str_final = 0;
-	ft_bzero(data.buffer, BUFFER_SIZE);
+	ft_bzero(data.buffer, BUFFER_SIZE_PRINTF);
 	data.index_buffer = 0;
 	while (*str)
 	{
@@ -51,4 +51,3 @@ int	ft_printf(const char *str, ...)
 	write(1, data.str_final, data.len_str_final);
 	return (data.len_str_final);
 }
-

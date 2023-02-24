@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:33:02 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/22 13:22:36 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/24 23:08:50 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	get_arg_c(t_data *data, va_list args)
 {
-	char	c_str[2];
+	// char	c_str[2];
 	char	c;
 
 	c = va_arg(args, int);
-	c_str[0] = c;
-	c_str[1] = '\0';
-	add_buffer_string(data, c_str);
+	// c_str[0] = c;
+	// c_str[1] = '\0';
+	add_buffer_char(data, c);
 }
 
 void	get_arg_string(t_data *data, va_list args)
@@ -45,7 +45,7 @@ int	add_pourcent(t_data *data, ssize_t index_funtab)
 	if (index_funtab == 8)
 	{
 		get_char(data, '%');
-		return(1);
+		return (1);
 	}
 	return (-1);
 }

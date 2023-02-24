@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:01:27 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/22 14:01:26 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:02:46 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	get_size_final(t_data *data)
 	// {
 	// 	data->len_str_final += write(1, data->buffer, data->index_buffer);
 	// }
-	add_str(&data->str_final, data->buffer, data->index_buffer + 1);
+	add_to_file(data->index_buffer + 1, data);
 	data->len_str_final += data->index_buffer;
 }
 

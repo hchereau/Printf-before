@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/18 15:58:21 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/24 23:09:47 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,37 @@ void	add_buffer_string(t_data *data, char *str)
 	len_str = ft_strlen(str);
 	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
 	{
-		ft_strlcpy(data->buffer + data->index_buffer, str, len_str + 1);
+		ft_memcpy(data->buffer + data->index_buffer, str, len_str + 1);
 		data->index_buffer += len_str;
 	}
 	else
 	{
 		index_str = add_last_buffer(data, str);
 		// data->len_str_final += write(1, data->buffer, BUFFER_SIZE_PRINTF);
-		add_str(&data->str_final, data->buffer, BUFFER_SIZE_PRINTF);
+		add_to_file(BUFFER_SIZE_PRINTF, data);
 		data->len_str_final += BUFFER_SIZE_PRINTF;
 		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
 		data->index_buffer = 0;
 		add_buffer_string(data, str + index_str);
+	}
+}
+
+void	add_buffer_char(t_data *data, char c)
+{
+	size_t	len_c;
+
+	len_c = 1;
+	if (data->index_buffer + len_c <= BUFFER_SIZE_PRINTF)
+	{
+		ft_memcpy(data->buffer + data->index_buffer, &c, len_c + 1);
+		data->index_buffer += len_c;
+	}
+	else
+	{
+		add_to_file(BUFFER_SIZE_PRINTF, data);
+		data->len_str_final += BUFFER_SIZE_PRINTF;
+		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
+		data->index_buffer = 0;
 	}
 }
 
