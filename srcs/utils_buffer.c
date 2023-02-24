@@ -40,7 +40,9 @@ void	add_buffer_string(t_data *data, char *str)
 	else
 	{
 		index_str = add_last_buffer(data, str);
-		data->len_str_final += write(1, data->buffer, BUFFER_SIZE_PRINTF);
+		// data->len_str_final += write(1, data->buffer, BUFFER_SIZE_PRINTF);
+		add_str(&data->str_final, data->buffer, BUFFER_SIZE_PRINTF);
+		data->len_str_final += BUFFER_SIZE_PRINTF;
 		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
 		data->index_buffer = 0;
 		add_buffer_string(data, str + index_str);

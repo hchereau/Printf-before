@@ -27,13 +27,14 @@ ssize_t	how_printable(char c)
 	return (-1);
 }
 
-size_t	get_size_final(t_data *data)
+void	get_size_final(t_data *data)
 {
-	if (data->index_buffer > 0)
-	{
-		data->len_str_final += write(1, data->buffer, data->index_buffer + 1);
-	}
-	return(data->len_str_final - 1);
+	// if (data->index_buffer > 0)
+	// {
+	// 	data->len_str_final += write(1, data->buffer, data->index_buffer);
+	// }
+	add_str(&data->str_final, data->buffer, data->index_buffer + 1);
+	data->len_str_final += data->index_buffer;
 }
 
 void	convert_base(t_data *data, size_t nb, char	*base)

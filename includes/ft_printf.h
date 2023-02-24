@@ -41,6 +41,6 @@ void	convert_base(t_data *data, size_t nb, char	*base);
 int		ft_printf(const char *str, ...);
 char	*ft_uitoa(unsigned int  n);
 ssize_t	how_printable(char c);
-size_t	get_size_final(t_data *data);
+void	get_size_final(t_data *data);
 
 #endif

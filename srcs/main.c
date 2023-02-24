@@ -41,9 +41,10 @@ int main(void)
 	int		oui;
 	int		ok;
 
-	ok = printf("%c %c %c", '0', 0, '1');
-	printf("\n\n%d\n\n", ok);
-	oui = ft_printf("%c %c %c", '0', 0, '1');
+	ok = ft_printf("%c %c %c", '0', 0, '1');
+	ft_printf("\n\n%d\n\n", ok);
+	ft_printf("\n--------------------\n");
+	oui = printf("%c %c %c", '0', 0, '1');
 	printf("\n\n%d\n\n", oui);
 }
 

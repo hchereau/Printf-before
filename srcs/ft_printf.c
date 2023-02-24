@@ -28,6 +28,7 @@ int	ft_printf(const char *str, ...)
 	static	void	(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string,
 	get_arg_p, get_arg_d, get_arg_d, get_arg_u, get_arg_x, get_arg_X};
 
+	data.str_final = NULL;
 	va_start(args, str);
 	data.len_str_final = 0;
 	ft_bzero(data.buffer, BUFFER_SIZE);
@@ -46,6 +47,8 @@ int	ft_printf(const char *str, ...)
 		++str;
 	}
 	va_end(args);
-	return (get_size_final(&data));
+	get_size_final(&data);
+	write(1, data.str_final, data.len_str_final);
+	return (data.len_str_final);
 }
 
