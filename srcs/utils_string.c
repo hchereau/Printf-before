@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:33:02 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/24 23:08:50 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:42:28 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	get_arg_c(t_data *data, va_list args)
 {
-	// char	c_str[2];
 	char	c;
 
 	c = va_arg(args, int);
-	// c_str[0] = c;
-	// c_str[1] = '\0';
 	add_buffer_char(data, c);
 }
 

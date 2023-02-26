@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/24 23:09:47 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:49:37 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	add_last_buffer(t_data *data, char *str)
 	size_t	i;
 
 	i = 0;
-	while (data->index_buffer < BUFFER_SIZE_PRINTF)
+	while (data->index_buffer <= BUFFER_SIZE_PRINTF)
 	{
 		data->buffer[data->index_buffer] = str[i];
 		++i;
@@ -36,11 +36,11 @@ void	add_buffer_string(t_data *data, char *str)
 	{
 		ft_memcpy(data->buffer + data->index_buffer, str, len_str + 1);
 		data->index_buffer += len_str;
+		printf("%s", data->str_final);
 	}
 	else
 	{
 		index_str = add_last_buffer(data, str);
-		// data->len_str_final += write(1, data->buffer, BUFFER_SIZE_PRINTF);
 		add_to_file(BUFFER_SIZE_PRINTF, data);
 		data->len_str_final += BUFFER_SIZE_PRINTF;
 		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
@@ -63,8 +63,9 @@ void	add_buffer_char(t_data *data, char c)
 	{
 		add_to_file(BUFFER_SIZE_PRINTF, data);
 		data->len_str_final += BUFFER_SIZE_PRINTF;
-		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
+		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF + 1);
 		data->index_buffer = 0;
+		add_buffer_char(data, c);
 	}
 }
 

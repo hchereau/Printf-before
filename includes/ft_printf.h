@@ -6,14 +6,14 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/24 23:11:35 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:48:17 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define BUFFER_SIZE_PRINTF 2
+# define BUFFER_SIZE_PRINTF 1
 # define BASE_HEXA_MINUS "0123456789abcdef"
 # define BASE_HEXA_MAJUS "0123456789ABCDEF"
 
@@ -22,10 +22,10 @@
 
 typedef struct s_data {
 	size_t	index_buffer;
-	char	buffer[BUFFER_SIZE_PRINTF];
+	char	buffer[BUFFER_SIZE_PRINTF + 1];
 	char	*str_final;
 	size_t	len_str_final;
-} t_data;
+}	t_data;
 
 void	add_buffer_string(t_data *data, char *str);
 void	get_arg_c(t_data *data, va_list args);

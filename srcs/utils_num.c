@@ -3,28 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   utils_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:01:19 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/22 12:03:22 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:34:38 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	get_arg_d(t_data *data, va_list args)
 {
 	int		arg_nb;
+	char	*free_itoa;
 
 	arg_nb = va_arg(args, int);
-	add_buffer_string(data, ft_itoa(arg_nb));
+	free_itoa = ft_itoa(arg_nb);
+	add_buffer_string(data, free_itoa);
+	free(free_itoa);
 }
 
 void	get_arg_u(t_data *data, va_list args)
 {
 	unsigned int		arg_nb;
+	char				*free_uitoa;
 
 	arg_nb = va_arg(args, unsigned int);
-	add_buffer_string(data, ft_uitoa(arg_nb));
+	free_uitoa = ft_uitoa(arg_nb);
+	add_buffer_string(data, free_uitoa);
+	free(free_uitoa);
 }
 
 void	get_arg_x(t_data *data, va_list args)
