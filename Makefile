@@ -41,7 +41,7 @@ HEADER += $(INCLUDES_FT_PRINTF)/ft_printf.h
 CC = clang
 CFLAGS += -Werror
 CFLAGS += -Wextra
-CFLAGS += -Wall
+CFLAGS += -Wall -g3
 
 ifeq (${debug}, true)
 	CFLAGS += -fsanitize=address,undefined -g3

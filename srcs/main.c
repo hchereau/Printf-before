@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/26 18:29:16 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:47:33 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,16 @@ int	main(void)
 }
 */
 
-int main(void)
+int	main(void)
 {
-//	unsigned	int nb = 42;
-	// int		oui;
-	// int		ok;
+	int		oui;
+	int		ok;
 
-	//ok = ft_printf("%c ayo %c %c %c", '0', '\n', 0, '1');
-	ft_printf("\n\n%d\n\n", 11);
+	ok = ft_printf("\nayo %%\n");
+	ft_printf("\n\n%d\n\n", ok);
 	ft_printf("\n--------------------\n\n");
-	//oui = printf("%c ayo %c %c %c", '0', '\n', 0, '1');
-	printf("\n\n%d\n\n", 11);
+	oui = printf("\nayo %%\n");
+	printf("\n\n%d\n\n", oui);
 }
 
 /*

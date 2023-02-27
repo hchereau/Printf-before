@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:33:02 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/26 15:42:28 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:46:22 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	add_pourcent(t_data *data, ssize_t index_funtab)
 {
 	if (index_funtab == 8)
 	{
-		get_char(data, '%');
+		add_buffer_char(data, '%');
 		return (1);
 	}
 	return (-1);
