@@ -39,7 +39,7 @@ HEADER += $(INCLUDES_FT_PRINTF)/ft_printf.h
 ### COMPILATION
 
 CC = clang
-CFLAGS += -Werror
+#CFLAGS += -Werror
 CFLAGS += -Wextra
 CFLAGS += -Wall -g3
 

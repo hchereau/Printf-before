@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/27 14:47:33 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:46:22 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	main(void)
 	int		oui;
 	int		ok;
 
-	ok = ft_printf("\nayo %%\n");
+	ok = ft_printf(" %p ", 16);
 	ft_printf("\n\n%d\n\n", ok);
 	ft_printf("\n--------------------\n\n");
-	oui = printf("\nayo %%\n");
+	oui = printf(" %p ", 16);
 	printf("\n\n%d\n\n", oui);
 }
 

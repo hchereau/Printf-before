@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:01:27 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/24 21:02:46 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:56:35 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	convert_base(t_data *data, size_t nb, char	*base)
 {
 	const size_t len_base = ft_strlen(base);
 
-	if (nb > len_base)
+	if (nb >= len_base)
 		convert_base(data, nb/len_base, base);
-	get_char(data, base[nb%len_base]);
+	add_buffer_char(data, base[nb%len_base]);
 }

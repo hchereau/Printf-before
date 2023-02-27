@@ -6,13 +6,13 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:28:34 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/26 18:44:39 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:37:02 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	get_size_nb(int nb)
+static size_t	get_size_nb(size_t nb)
 {
 	size_t	size;
 
@@ -25,14 +25,14 @@ static size_t	get_size_nb(int nb)
 	return (size);
 }
 
-static unsigned long	get_abs(int n)
+static unsigned long	get_abs(size_t n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static void	cp_nb(char *dest, int n, size_t size_nb)
+static void	cp_nb(char *dest, size_t n, size_t size_nb)
 {
 	size_t			i;
 	unsigned int	abs_n;
@@ -51,15 +51,10 @@ static void	cp_nb(char *dest, int n, size_t size_nb)
 char	*ft_uitoa(unsigned int n)
 {
 	const size_t	size_nb = get_size_nb(n);
-	const bool		is_neg = (n < 0);
 	char			*str_nb;
 
-	str_nb = (char *)malloc((size_nb + is_neg + 1) * sizeof(char));
+	str_nb = (char *)malloc((size_nb + 1) * sizeof(char));
 	if (str_nb != NULL)
-	{
-//		if (n < 0)
-//			str_nb[0] = '-';
-		cp_nb(str_nb + is_neg, n, size_nb);
-	}
+		cp_nb(str_nb, n, size_nb);
 	return (str_nb);
 }

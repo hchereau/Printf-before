@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/27 14:34:49 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:17:05 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,27 @@ void	add_buffer_string(t_data *data, char *str)
 {
 	size_t	len_str;
 	size_t	index_str;
-
-	len_str = ft_strlen(str);
-	if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
+	
+	if (str)
 	{
-		ft_memcpy(data->buffer + data->index_buffer, str, len_str + 1);
-		data->index_buffer += len_str;
+		len_str = ft_strlen(str);
+		if (data->index_buffer + len_str <= BUFFER_SIZE_PRINTF)
+		{
+			ft_memcpy(data->buffer + data->index_buffer, str, len_str + 1);
+			data->index_buffer += len_str;
+		}
+		else
+		{
+			index_str = add_last_buffer(data, str);
+			add_to_file(BUFFER_SIZE_PRINTF, data);
+			data->len_str_final += BUFFER_SIZE_PRINTF;
+			ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
+			data->index_buffer = 0;
+			add_buffer_string(data, str + index_str);
+		}
 	}
 	else
-	{
-		index_str = add_last_buffer(data, str);
-		add_to_file(BUFFER_SIZE_PRINTF, data);
-		data->len_str_final += BUFFER_SIZE_PRINTF;
-		ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
-		data->index_buffer = 0;
-		add_buffer_string(data, str + index_str);
-	}
+		add_buffer_string(data, "(null)");
 }
 
 void	add_buffer_char(t_data *data, char c)
