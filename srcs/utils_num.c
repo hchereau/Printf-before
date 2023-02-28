@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:01:19 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/26 18:34:38 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:04:49 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	get_arg_x(t_data *data, va_list args)
 {
 	size_t	arg_nb;
 
-	arg_nb = va_arg(args, size_t);
+	arg_nb = va_arg(args, unsigned int);
 	convert_base(data, arg_nb, BASE_HEXA_MINUS);
 }
 
@@ -46,6 +46,6 @@ void	get_arg_X(t_data *data, va_list args)
 {
 	size_t	arg_nb;
 
-	arg_nb = va_arg(args, size_t);
+	arg_nb = va_arg(args, unsigned int);
 	convert_base(data, arg_nb, BASE_HEXA_MAJUS);
 }

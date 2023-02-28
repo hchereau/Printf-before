@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 21:59:45 by rbroque           #+#    #+#             */
-/*   Updated: 2023/02/27 15:46:22 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:59:28 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ int	main(void)
 {
 	int		oui;
 	int		ok;
+	size_t	LONG_MAX;
 
-	ok = ft_printf(" %p ", 16);
+	LONG_MAX = 2147483647;
+	ok = ft_printf(" %x ", LONG_MAX);
 	ft_printf("\n\n%d\n\n", ok);
 	ft_printf("\n--------------------\n\n");
-	oui = printf(" %p ", 16);
+	oui = printf(" %x ", LONG_MAX);
 	printf("\n\n%d\n\n", oui);
 }
 
