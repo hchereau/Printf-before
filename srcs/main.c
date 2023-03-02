@@ -34,19 +34,20 @@ int	main(void)
 	ft_printf("salut %c", c);
 }
 */
+#include <limits.h>
 
 int	main(void)
 {
-	int		oui;
-	int		ok;
-	size_t	LONG_MAX;
+	const char	*str = "%u%s%w";
+	const unsigned long	arg1 = 0;
+	const char	*arg2 = "hello";
+	size_t		len1;
+	size_t		len2;
 
-	LONG_MAX = 2147483647;
-	ok = ft_printf(" %x ", LONG_MAX);
-	ft_printf("\n\n%d\n\n", ok);
-	ft_printf("\n--------------------\n\n");
-	oui = printf(" %x ", LONG_MAX);
-	printf("\n\n%d\n\n", oui);
+	len1 = ft_printf(str, arg1, arg2);
+	printf("\n----------------\n");
+	len2 = printf(str, arg1, arg2);
+	printf("\n--> %d\n", len1 == len2);
 }
 
 /*
