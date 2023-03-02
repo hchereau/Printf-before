@@ -6,23 +6,14 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/26 18:53:22 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:56:55 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-static void		get_char_without_pourcent(t_data *data, char c)
-{
-	if (c == '%')
-		return ;
-	else
-		get_char(data, c);
-}
-*/
-
-void	get_string(const char *str, t_data *data, va_list args, void (*funtab[])(t_data *, va_list))
+void	get_string(const char *str, t_data *data,
+					va_list args, void (*funtab[])(t_data *, va_list))
 {
 	ssize_t			index_funtab;
 
@@ -43,22 +34,23 @@ void	get_string(const char *str, t_data *data, va_list args, void (*funtab[])(t_
 	get_size_final(data);
 }
 
+void	init_data(t_data *data)
+{
+	data->str_final = NULL;
+	data->len_str_final = 0;
+	ft_bzero(data->buffer, BUFFER_SIZE_PRINTF);
+	data->index_buffer = 0;
+}
+
 int	ft_printf(const char *str, ...)
 {
 	struct s_data	data;
 	va_list			args;
 	static void		(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string,
-		get_arg_p, get_arg_d, get_arg_d, get_arg_u, get_arg_x, get_arg_X};
+		get_arg_p, get_arg_d, get_arg_d, get_arg_u, get_arg_x, get_arg_xmaj};
 
 	va_start(args, str);
-	//  init_data
-
-	data.str_final = NULL;
-	data.len_str_final = 0;
-	ft_bzero(data.buffer, BUFFER_SIZE_PRINTF);
-	data.index_buffer = 0;
-	//
-
+	init_data(&data);
 	get_string(str, &data, args, funtab);
 	va_end(args);
 	data.len_str_final = write(1, data.str_final, data.len_str_final);

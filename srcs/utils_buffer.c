@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:32:05 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/27 15:17:05 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:55:21 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_buffer_string(t_data *data, char *str)
 {
 	size_t	len_str;
 	size_t	index_str;
-	
+
 	if (str)
 	{
 		len_str = ft_strlen(str);

@@ -6,7 +6,7 @@
 /*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/02/27 14:46:14 by hchereau         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:53:44 by hchereau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_arg_p(t_data *data, va_list args);
 void	get_arg_d(t_data *data, va_list args);
 void	get_arg_u(t_data *data, va_list args);
 void	get_arg_x(t_data *data, va_list args);
-void	get_arg_X(t_data *data, va_list args);
+void	get_arg_xmaj(t_data *data, va_list args);
 int		add_pourcent(t_data *data, ssize_t index_funtab);
 void	convert_base(t_data *data, size_t nb, char	*base);
 int		ft_printf(const char *str, ...);

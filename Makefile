@@ -16,7 +16,6 @@ SRCS += utils_string.c
 SRCS += utils_pointeur.c
 SRCS += utils_num.c
 SRCS += ft_uitoa.c
-SRCS += main.c
 SRCS += add_to_file_string.c
 
 vpath %.c $(PATH_SRCS)
@@ -39,7 +38,7 @@ HEADER += $(INCLUDES_FT_PRINTF)/ft_printf.h
 ### COMPILATION
 
 CC = clang
-#CFLAGS += -Werror
+CFLAGS += -Werror
 CFLAGS += -Wextra
 CFLAGS += -Wall
 
