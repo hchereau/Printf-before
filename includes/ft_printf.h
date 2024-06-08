@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 11:03:25 by hchereau          #+#    #+#             */
-/*   Updated: 2023/03/02 15:53:44 by hchereau         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:54:46 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define BASE_HEXA_MAJUS "0123456789ABCDEF"
 
 # include <stdarg.h>
-# include "../libft/includes/libft.h"
+# include "libft.h"
 
 typedef struct s_data {
 	size_t	index_buffer;

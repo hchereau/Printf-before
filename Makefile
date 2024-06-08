@@ -24,7 +24,7 @@ vpath %.c $(PATH_SRCS)
 
 PATH_OBJS = objs/
 
-OBJS = $(patsubst %.c, ${PATH_OBJS}/%.o, ${SRCS})
+OBJS = $(patsubst %.c, $(PATH_OBJS)/%.o, ${SRCS})
 
 ### INCLUDES
 
@@ -42,7 +42,7 @@ CFLAGS += -Werror
 CFLAGS += -Wextra
 CFLAGS += -Wall
 
-ifeq (${debug}, true)
+ifeq ($(debug), true)
 	CFLAGS += -fsanitize=address,undefined -g3
 endif
 
@@ -54,23 +54,28 @@ $(NAME): $(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)
 	$(AR) $(NAME) $(OBJS)
 
-$(OBJS): ${PATH_OBJS}/%.o: %.c $(HEADER)
-	mkdir -p ${PATH_OBJS}
-	${CC} ${CFLAGS} -c $< -o $@ -I $(INCLUDES_LIBFT) -I $(INCLUDES_FT_PRINTF)
+$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADER)
+	mkdir -p $(PATH_OBJS)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES_LIBFT) -I $(INCLUDES_FT_PRINTF)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_FOLDER)
 
 clean:
-	${RM} -R ${PATH_OBJS}
+	$(RM) -R $(PATH_OBJS)
 	$(MAKE) -C $(LIBFT_FOLDER) clean
 
 fclean: clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 	$(MAKE) -C $(LIBFT_FOLDER) fclean
 
 re: fclean
 	$(MAKE)
+
+run: $(NAMES)
+	$(CC) $(CFLAGS) main.c libftprintf.a $(INCLUDES)
+	funcheck ./a.out
+	$(RM) a.out
 
 norm:
 	echo "\033[44;97;1m               \033[0m"
