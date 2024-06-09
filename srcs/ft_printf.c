@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hchereau <hchereau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 07:19:16 by hchereau          #+#    #+#             */
-/*   Updated: 2023/03/02 15:56:55 by hchereau         ###   ########.fr       */
+/*   Updated: 2024/06/09 12:21:56 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_printf(const char *str, ...)
 	static void		(*funtab[])(t_data *, va_list) = {get_arg_c, get_arg_string,
 		get_arg_p, get_arg_d, get_arg_d, get_arg_u, get_arg_x, get_arg_xmaj};
 
+	if (str == NULL)
+		return (-1);
 	va_start(args, str);
 	init_data(&data);
 	get_string(str, &data, args, funtab);

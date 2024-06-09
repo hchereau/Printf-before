@@ -2,5 +2,5 @@
 
 int	main(void)
 {
-	ft_printf("salut hugo%s%p, %d\n", "thomas", (void *)-1, 11);
+	ft_printf("%i", NULL);
 }

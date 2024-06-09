@@ -72,9 +72,9 @@ fclean: clean
 re: fclean
 	$(MAKE)
 
-run: $(NAMES)
+run: $(NAME)
 	$(CC) $(CFLAGS) main.c libftprintf.a $(INCLUDES)
-	funcheck ./a.out
+	./a.out
 	$(RM) a.out
 
 norm:
@@ -97,4 +97,4 @@ norm:
 	norminette includes | awk '{if ($$NF == "OK!") { print "\033[0;92m"$$0"\033[0m" } else if ($$NF == "Error!") { print "\033[41;97;5;1m"$$0"\033[0m" } else { print }}'
 
 .PHONY: all clean fclean re
-.SILENT: norm
+.SILENT: norm run
